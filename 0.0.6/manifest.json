@@ -1,0 +1,51 @@
+{
+  "$id": "https://schema.doxl.ch/0.0.6/manifest.json",
+  "title": "Manifest",
+  "description": "A manifest file that describes the DOXL repository.",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "title",
+    "forms"
+  ],
+  "properties": {
+    "$schema": {
+      "description": "JSON Schema reference URI.",
+      "type": "string"
+    },
+    "title": {
+      "description": "The title of the DOXL workspace.",
+      "type": "string"
+    },
+    "forms": {
+      "description": "An array of forms that can be filled by users in a structured way.",
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$id": "form",
+        "title": "Form",
+        "description": "A form that can be filled by users in a structured way.",
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "title",
+          "schema"
+        ],
+        "properties": {
+          "title": {
+            "description": "The title of the form.",
+            "type": "string"
+          },
+          "schema": {
+            "description": "The URI of the schema that defines the structure of the form.",
+            "type": "string"
+          },
+          "uiSchema": {
+            "description": "The URI of the UI schema that defines the layout of the form.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
