@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "required": [
+    "entries"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference URI."
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "description",
+          "url",
+          "author"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The title of the index entry."
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the index entry."
+          },
+          "url": {
+            "type": "string",
+            "description": "The URL to the manifest."
+          },
+          "color": {
+            "type": "string",
+            "description": "The color (in HTML hex format) of the index entry."
+          },
+          "author": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "name",
+                  "url"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ],
+            "description": "The author of the index entry."
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "$id": "https://schema.doxl.ch/0.1.4/index.json",
+  "title": "Index",
+  "description": "Index of publically available DOXL manifests.",
+  "additionalProperties": false
+}
