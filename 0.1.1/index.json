@@ -1,0 +1,25 @@
+{
+  "type": "array",
+  "items": {
+    "title": {
+      "type": "string",
+      "description": "The title of the index entry."
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the index entry."
+    },
+    "url": {
+      "type": "string",
+      "description": "The URL of the index entry."
+    },
+    "color": {
+      "type": "string",
+      "description": "The color (in HTML hex format) of the index entry."
+    }
+  },
+  "$id": "https://schema.doxl.ch/0.1.1/index.json",
+  "title": "Index",
+  "description": "Index of publically available DOXL manifests.",
+  "additionalProperties": false
+}
