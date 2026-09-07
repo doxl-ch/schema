@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "required": [
+    "title",
+    "version",
+    "forms"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference URI."
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the DOXL manifest."
+    },
+    "version": {
+      "type": "string",
+      "description": "The version of the DOXL manifest."
+    },
+    "forms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "schema"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The title of the form."
+          },
+          "schema": {
+            "type": "string",
+            "description": "The URI of the schema that defines the structure of the form."
+          },
+          "uiSchema": {
+            "type": "string",
+            "description": "The URI of the UI schema that defines the layout of the form."
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "title": {
+                "type": "string",
+                "description": "The title of the output."
+              },
+              "mode": {
+                "enum": [
+                  "print",
+                  "clipboard",
+                  "download"
+                ],
+                "description": "The mode of the output."
+              },
+              "type": {
+                "enum": [
+                  "txt",
+                  "html"
+                ],
+                "description": "The type of the output."
+              },
+              "template": {
+                "type": "string",
+                "description": "The URI of the template that defines the rendered output."
+              }
+            },
+            "$id": "output",
+            "title": "Output",
+            "description": "Outputs are the rendered results of a filled form, which can be downloaded from the DOXL client.",
+            "additionalProperties": false
+          }
+        },
+        "$id": "form",
+        "title": "Form",
+        "description": "A form that can be filled by users in a structured way.",
+        "additionalProperties": false
+      },
+      "description": "An array of forms that can be filled by users in a structured way.",
+      "minItems": 1
+    }
+  },
+  "$id": "https://schema.doxl.ch/0.1.3/manifest.json",
+  "title": "Manifest",
+  "description": "A manifest file that describes the DOXL repository.",
+  "additionalProperties": false
+}
